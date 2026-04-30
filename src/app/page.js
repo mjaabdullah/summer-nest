@@ -1,9 +1,9 @@
-import Navbar from "@/components/shared/Navbar";
+import Hero from "@/components/hero/Hero";
 
 export default function Home() {
   return (
-    <>
-      <h1>Your Summer Essentials Hub</h1>
-    </>
+    <main>
+      <Hero />
+    </main>
   );
 }
