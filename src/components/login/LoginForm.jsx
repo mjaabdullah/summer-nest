@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
 import {
   Button,
@@ -15,17 +16,21 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const LoginForm = () => {
   const [showPassword, SetShowPassword] = useState(false);
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const data = {};
+    const userData = {};
 
     // Convert FormData to plain object
     formData.forEach((value, key) => {
-      data[key] = value.toString();
+      userData[key] = value.toString();
     });
 
-    alert(`Form submitted with: ${JSON.stringify(data, null, 2)}`);
+    const { data, error } = await authClient.signIn.email({
+      ...userData,
+      callbackURL: "/",
+    });
+    alert(error.message);
   };
 
   return (

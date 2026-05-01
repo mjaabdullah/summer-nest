@@ -1,10 +1,17 @@
+"use client";
 import logo from "@/app/logo.png";
+import { authClient } from "@/lib/auth-client";
 import Image from "next/image";
 import Link from "next/link";
 import { CgProfile } from "react-icons/cg";
 import { FaHome, FaProductHunt } from "react-icons/fa";
 import NavLink from "./NavLink";
 const Navbar = () => {
+  console.log("function running...");
+  // const { data, error } = await authClient.getSession();
+  const { data, error } = authClient.useSession();
+
+  console.log(data?.user);
   return (
     <header className="shadow-sm bg-white sticky top-0 z-50 ">
       <nav className="container mx-auto flex justify-between items-center px-4 py-2 sm:py-4">
@@ -23,43 +30,38 @@ const Navbar = () => {
           <NavLink path={`/products`} name={`Products`}>
             <FaProductHunt />
           </NavLink>
-          <NavLink path={`/my-profile`} name={`My Profile`}>
-            <CgProfile />
-          </NavLink>
+          {data?.user && (
+            <NavLink path={`/my-profile`} name={`My Profile`}>
+              <CgProfile />
+            </NavLink>
+          )}
         </ul>
         <div className="flex items-center gap-2.5">
-          <Link
-            href={`/login`}
-            className="ring ring-gray-300 py-1 md:py-1.5 px-3 md:px-4 font-semibold rounded-full text-sm md:text-[16px] hover:bg-linear-to-br from-orange-600 to-orange-400 hover:text-white"
-          >
-            {" "}
-            Login
-            {/* <Button
-              className={`hidden sm:block hover:bg-orange-500 hover:text-white`}
-              variant="outline"
+          {data?.user ? (
+            <Link
+              onClick={async () => await authClient.signOut()}
+              href={`/`}
+              className="text-white py-1 md:py-1.5 px-3 md:px-4 font-semibold rounded-full text-sm md:text-[16px] bg-linear-to-br from-orange-600 to-orange-400"
             >
-              Login
-            </Button>
-            <span className="hidden sm:block">Login</span>
-            <span className="sm:hidden text-2xl">
-              <AiOutlineLogin />
-            </span> */}
-          </Link>
-          <Link
-            href={`/register`}
-            className="text-white py-1 md:py-1.5 px-3 md:px-4 font-semibold rounded-full text-sm md:text-[16px] bg-linear-to-br from-orange-600 to-orange-400"
-          >
-            Register
-            {/* <Button
-              className={`hidden sm:block bg-linear-to-br from-orange-600 to-orange-400`}
-            >
-              Register
-            </Button>
-            <span className="sm:hidden text-2xl">
-              {/* <AiOutlineLogout /> */}
-            {/* <LuFilePenLine /> */}
-            {/* </span> */}
-          </Link>
+              Log Out
+            </Link>
+          ) : (
+            <>
+              <Link
+                href={`/login`}
+                className="ring ring-gray-300 py-1 md:py-1.5 px-3 md:px-4 font-semibold rounded-full text-sm md:text-[16px] hover:bg-linear-to-br from-orange-600 to-orange-400 hover:text-white"
+              >
+                {" "}
+                Login
+              </Link>
+              <Link
+                href={`/register`}
+                className="text-white py-1 md:py-1.5 px-3 md:px-4 font-semibold rounded-full text-sm md:text-[16px] bg-linear-to-br from-orange-600 to-orange-400"
+              >
+                Register
+              </Link>
+            </>
+          )}
         </div>
       </nav>
     </header>
