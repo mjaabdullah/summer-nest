@@ -14,13 +14,11 @@ const productPage = () => {
           Explore our curated collection of summer essentials
         </p>
       </div>
-      <div>
-        <div></div>
-        <div className="grid grid-cols-2 gap-5 items-center my-10">
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-10 justify-items-center">
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
       </div>
     </div>
   );

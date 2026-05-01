@@ -6,7 +6,7 @@ const ProductCard = ({ product }) => {
   const { name, brand, price, rating, description, image, category, stock } =
     product;
   return (
-    <div className="bg-gray-100 shadow rounded-lg  max-w-80">
+    <div className="bg-gray-100 w-full shadow rounded-lg  max-w-80">
       <div className="relative w-full h-37.5">
         <Image
           src={image}
