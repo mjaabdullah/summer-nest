@@ -8,12 +8,14 @@ const Navbar = () => {
   return (
     <header className="shadow-sm bg-white sticky top-0 z-50 ">
       <nav className="container mx-auto flex justify-between items-center px-4 py-2 sm:py-4">
-        <div className="flex gap-1 items-center">
-          <Image alt="Logo" src={logo} width={40} height={40} />
-          <span className="hidden md:block font-bold text-3xl bg-linear-to-br from-orange-600 to-orange-400 text-transparent bg-clip-text">
-            SummerNest
-          </span>
-        </div>
+        <Link href={`/`}>
+          <div className="flex gap-1 items-center">
+            <Image alt="Logo" src={logo} width={40} height={40} />
+            <span className="hidden md:block font-bold text-3xl bg-linear-to-br from-orange-600 to-orange-400 text-transparent bg-clip-text">
+              SummerNest
+            </span>
+          </div>
+        </Link>
         <ul className="flex gap-1">
           <NavLink path={`/`} name={`Home`}>
             <FaHome />

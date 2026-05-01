@@ -8,11 +8,11 @@ const NavLink = ({ path, name, children }) => {
   console.log(pathName, isActive);
   return (
     <li
-      className={`py-1 px-2 hover:bg-slate-200 rounded text-center ${isActive}`}
+      className={`py-1 px-2 hover:bg-slate-200 hover:rounded text-center ${isActive}`}
     >
       <Link href={path}>
-        <span className="hidden sm:block text-xl text-gray-700">{name}</span>
-        <span className="sm:hidden text-xl text-gray-800">{children}</span>
+        <span className="hidden sm:block text-lg text-gray-700">{name}</span>
+        <span className="sm:hidden text-2xl text-gray-800">{children}</span>
       </Link>
     </li>
   );
