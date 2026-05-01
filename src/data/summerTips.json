@@ -1,0 +1,28 @@
+{
+  "summer_tips": [
+    {
+      "id": 1,
+      "icon": "💧",
+      "title": "Stay Hydrated",
+      "description": "Drink plenty of water throughout the day to keep your body cool and energized"
+    },
+    {
+      "id": 2,
+      "icon": "🧴",
+      "title": "Use Sunscreen",
+      "description": "Protect your skin with SPF 30+ sunscreen to prevent harmful UV damage"
+    },
+    {
+      "id": 3,
+      "icon": "👕",
+      "title": "Wear Light Clothes",
+      "description": "Choose breathable, light-colored fabrics for maximum comfort"
+    },
+    {
+      "id": 4,
+      "icon": "🌳",
+      "title": "Seek Shade",
+      "description": "Avoid direct sunlight during peak hours (10 AM - 4 PM)"
+    }
+  ]
+}

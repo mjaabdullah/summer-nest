@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 const NavLink = ({ path, name, children }) => {
   const pathName = usePathname();
   const isActive = pathName === path ? "border-b-2 border-orange-500" : "";
-  console.log(pathName, isActive);
+
   return (
     <li
       className={`py-1 px-2 hover:bg-slate-200 hover:rounded text-center ${isActive}`}
