@@ -10,11 +10,15 @@ import {
   Input,
   Label,
   TextField,
+  toast,
 } from "@heroui/react";
+import { useRouter } from "next/navigation";
+
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const LoginForm = () => {
+  const router = useRouter();
   const [showPassword, SetShowPassword] = useState(false);
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -28,9 +32,12 @@ const LoginForm = () => {
 
     const { data, error } = await authClient.signIn.email({
       ...userData,
-      callbackURL: "/",
     });
-    alert(error.message);
+    if (error) {
+      toast.danger(`Login failed: ${error.message}`);
+    } else {
+      router.push("/");
+    }
   };
 
   return (

@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import {
   Button,
   FieldError,
@@ -7,9 +8,12 @@ import {
   Input,
   Label,
   TextField,
+  toast,
 } from "@heroui/react";
+import { useRouter } from "next/navigation";
 
 const UpdateForm = () => {
+  const router = useRouter();
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -20,11 +24,18 @@ const UpdateForm = () => {
       userData[key] = value.toString();
     });
 
-    // const { data, error } = await authClient.signIn.email({
-    //   ...userData,
-    //   callbackURL: "/",
-    // });
-    // alert(error.message);
+    await authClient.updateUser({
+      ...userData,
+      fetchOptions: {
+        onSuccess: () => {
+          toast.success("Profile updated successfully!");
+          router.push("/my-profile");
+        },
+        error: (err) => {
+          toast.error(`Failed to update profile: ${err.message}`);
+        },
+      },
+    });
   };
 
   return (

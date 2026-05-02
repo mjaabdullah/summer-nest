@@ -9,8 +9,8 @@ const ProfileCard = () => {
   const { name, email, image } = data?.user || {};
 
   return (
-    <div className="max-w-100 mx-auto my-10 bg-orange-50/50 rounded-lg shadow-sm flex flex-col items-center p-6 space-y-3">
-      <div className="w-40 h-40 rounded-full overflow-hidden relative ring-2 ring-orange-500">
+    <div className="max-w-100 mx-auto my-10 bg-orange-50/50 rounded-lg shadow-sm flex flex-col items-center p-6 py-10 space-y-3">
+      <div className="w-40 h-40 rounded-full overflow-hidden relative  ring-2 ring-orange-500">
         <Image src={image} alt={name} fill />
       </div>
       <div className="flex flex-col items-center gap-1">

@@ -1,5 +1,6 @@
 import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar";
+import { Toast } from "@heroui/react";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
           {children}
         </main>
         <Footer />
+        <Toast.Provider />
       </body>
     </html>
   );

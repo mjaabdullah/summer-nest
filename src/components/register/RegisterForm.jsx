@@ -10,6 +10,7 @@ import {
   Input,
   Label,
   TextField,
+  toast,
 } from "@heroui/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -36,12 +37,11 @@ const RegisterForm = () => {
           //show loading
         },
         onSuccess: (ctx) => {
-          alert("Account Created!");
           router.push("/");
         },
         onError: (ctx) => {
           // display the error message
-          alert(ctx.error.message);
+          toast.warning(`Failed to create account: ${ctx.error.message}`);
         },
       },
     );
