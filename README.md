@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# SummerNest – Your Summer Essentials Hub
 
-## Getting Started
+## Project Purpose
+SummerNest is a summer eCommerce website where users can browse and buy seasonal products like sunglasses, summer outfits, skincare, beach accessories and more. Users need to login to view product details.
 
-First, run the development server:
+## Live URL
+https://summer-nest.vercel.app
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Key Features
+- Home page has a hero banner, popular products, summer care tips and top brands section
+- Product details page is protected, cannot be viewed without login
+- Login with email/password and Google using BetterAuth
+- My Profile page shows user name, photo and email
+- Users can update their name and profile photo
+- Animations added using animate.css
+- Fully responsive on mobile, tablet and desktop
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## npm Packages Used
+- next js
+- tailwindcss
+- heroUI
+- react icon
+- better-auth
+- animate.css
