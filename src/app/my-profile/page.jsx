@@ -1,5 +1,11 @@
+import ProfileCard from "@/components/myProfile/ProfileCard";
+
 const myProfile = () => {
-  return <div>my Profile</div>;
+  return (
+    <div>
+      <ProfileCard />
+    </div>
+  );
 };
 
 export default myProfile;

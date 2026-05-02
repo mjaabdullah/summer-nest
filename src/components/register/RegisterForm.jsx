@@ -66,6 +66,21 @@ const RegisterForm = () => {
       </TextField>
       <TextField
         isRequired
+        name="image"
+        type="url"
+        validate={(value) => {
+          if (value.length < 10) {
+            return "Photo URL must be at least 10 characters";
+          }
+          return null;
+        }}
+      >
+        <Label>Enter your photo URL</Label>
+        <Input placeholder="Enter your photo URL" />
+        <FieldError />
+      </TextField>
+      <TextField
+        isRequired
         name="email"
         type="email"
         validate={(value) => {

@@ -12,6 +12,7 @@ const Navbar = () => {
   const router = useRouter();
 
   const { data, error } = authClient.useSession();
+  
 
   return (
     <header className="shadow-sm bg-white sticky top-0 z-50 ">
@@ -32,27 +33,34 @@ const Navbar = () => {
             <FaProductHunt />
           </NavLink>
           {data?.user && (
-            <NavLink path={`/my-profile`} name={`My Profile`}>
-              <CgProfile />
-            </NavLink>
+            <>
+              <NavLink path={`/my-profile`} name={`My Profile`}>
+                <CgProfile />
+              </NavLink>
+            </>
           )}
         </ul>
         <div className="flex items-center gap-2.5">
           {data?.user ? (
-            <button
-              onClick={async () =>
-                await authClient.signOut({
-                  fetchOptions: {
-                    onSuccess: () => {
-                      router.push("/login");
+            <>
+              <div className="w-8 h-8 rounded-full overflow-hidden relative hover:ring ring-orange-400">
+                <Image src={data?.user.image} alt={data?.user.name} fill />
+              </div>
+              <button
+                onClick={async () =>
+                  await authClient.signOut({
+                    fetchOptions: {
+                      onSuccess: () => {
+                        router.push("/login");
+                      },
                     },
-                  },
-                })
-              }
-              className="text-white py-1 md:py-1.5 px-3 md:px-4 font-semibold rounded-full text-sm md:text-[16px] bg-linear-to-br from-orange-600 to-orange-400 cursor-pointer"
-            >
-              Log Out
-            </button>
+                  })
+                }
+                className="text-white py-1 md:py-1.5 px-3 md:px-4 font-semibold rounded-full text-sm md:text-[16px] bg-linear-to-br from-orange-600 to-orange-400 cursor-pointer"
+              >
+                Log Out
+              </button>
+            </>
           ) : (
             <>
               <Link
