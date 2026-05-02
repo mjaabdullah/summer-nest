@@ -1,8 +1,6 @@
-import OrDivider from "@/components/register/OrDivider";
+import GoogleSingIn from "@/components/login/GoogleSingIn";
 import RegisterForm from "@/components/register/RegisterForm";
-import { Button } from "@heroui/react";
 import Link from "next/link";
-import { FcGoogle } from "react-icons/fc";
 
 const RegisterPage = () => {
   return (
@@ -13,13 +11,7 @@ const RegisterPage = () => {
           <p className="text-gray-600">Start your journey with us</p>
         </div>
         <RegisterForm />
-        <OrDivider />
-        <div>
-          <Button className="w-full" variant="tertiary">
-            <FcGoogle />
-            Sign in with Google
-          </Button>
-        </div>
+        <GoogleSingIn />
         <div className="text-center">
           Already have an account?{" "}
           <Link

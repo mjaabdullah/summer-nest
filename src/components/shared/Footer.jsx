@@ -60,7 +60,7 @@ const Footer = () => {
         </div>
         <div className="flex flex-wrap-reverse gap-3.5 justify-between mt-5 pt-6 border-t-2 border-amber-200">
           <div>
-            © {new Date().getFullYear()} SummerStore. All rights reserved.
+            © {new Date().getFullYear()} SummerNest. All rights reserved.
           </div>
 
           <ul className="flex gap-2">

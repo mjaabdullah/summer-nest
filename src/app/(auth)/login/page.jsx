@@ -1,3 +1,4 @@
+import GoogleSingIn from "@/components/login/GoogleSingIn";
 import LoginForm from "@/components/login/LoginForm";
 
 const LoginPage = () => {
@@ -9,6 +10,7 @@ const LoginPage = () => {
           <p className="text-gray-600">Login to access your account</p>
         </div>
         <LoginForm />
+        <GoogleSingIn />
       </div>
     </div>
   );
