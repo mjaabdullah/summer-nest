@@ -2,7 +2,9 @@ import GoogleSingIn from "@/components/login/GoogleSingIn";
 import RegisterForm from "@/components/register/RegisterForm";
 import Link from "next/link";
 
-const RegisterPage = () => {
+const RegisterPage = async ({ searchParams }) => {
+  const { callbackUrl } = await searchParams;
+  const redirectTo = callbackUrl || "/";
   return (
     <div className="container mx-auto">
       <div className="p-5 bg-orange-50 rounded-lg shadow max-w-90 mx-auto overflow-hidden my-10 space-y-3">
@@ -11,7 +13,7 @@ const RegisterPage = () => {
           <p className="text-gray-600">Start your journey with us</p>
         </div>
         <RegisterForm />
-        <GoogleSingIn />
+        <GoogleSingIn callbackUrl={redirectTo} />
         <div className="text-center">
           Already have an account?{" "}
           <Link

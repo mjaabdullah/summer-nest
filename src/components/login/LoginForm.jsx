@@ -17,7 +17,8 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-const LoginForm = () => {
+const LoginForm = ({ callbackUrl }) => {
+  console.log(callbackUrl, "aca");
   const router = useRouter();
   const [showPassword, SetShowPassword] = useState(false);
   const onSubmit = async (e) => {
@@ -36,7 +37,7 @@ const LoginForm = () => {
     if (error) {
       toast.danger(`Login failed: ${error.message}`);
     } else {
-      router.push("/");
+      router.push(callbackUrl);
     }
   };
 
