@@ -1,10 +1,20 @@
 import { Button } from "@heroui/react";
 import Image from "next/image";
+import Link from "next/link";
 import { MdStarBorderPurple500 } from "react-icons/md";
 
 const ProductCard = ({ product }) => {
-  const { name, brand, price, rating, description, image, category, stock } =
-    product;
+  const {
+    id,
+    name,
+    brand,
+    price,
+    rating,
+    description,
+    image,
+    category,
+    stock,
+  } = product;
   return (
     <div className="bg-gray-100 w-full shadow rounded-lg  max-w-80">
       <div className="relative w-full h-37.5">
@@ -27,7 +37,9 @@ const ProductCard = ({ product }) => {
           <span className="text-2xl text-red-600 font-bold">${price}</span>
         </div>
 
-        <Button fullWidth>View Details</Button>
+        <Link href={`/products/details/${id}`}>
+          <Button fullWidth>View Details</Button>
+        </Link>
       </div>
     </div>
   );

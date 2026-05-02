@@ -11,10 +11,12 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const RegisterForm = () => {
+  const router = useRouter();
   const [showPassword, SetShowPassword] = useState(false);
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -28,14 +30,14 @@ const RegisterForm = () => {
     const { data, error } = await authClient.signUp.email(
       {
         ...userData,
-        callbackURL: "/dashboard",
       },
       {
         onRequest: (ctx) => {
           //show loading
         },
         onSuccess: (ctx) => {
-          //redirect to the dashboard or sign in page
+          alert("Account Created!");
+          router.push("/");
         },
         onError: (ctx) => {
           // display the error message

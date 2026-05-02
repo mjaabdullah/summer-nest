@@ -8,3 +8,12 @@ export const getSummerTips = () => {
 export const getProducts = () => {
   return products;
 };
+
+export const getProduct = async (params) => {
+  const { id } = await params;
+  const products = getProducts();
+  return products.find((p) => p.id === parseInt(id));
+};
+
+
+
